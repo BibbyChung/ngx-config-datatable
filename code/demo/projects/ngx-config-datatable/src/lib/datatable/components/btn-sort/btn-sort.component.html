@@ -1,0 +1,6 @@
+<a href="#" (click)="click($event)">
+  {{info.text}}
+  <i *ngIf="info.isSortable && info.sort==='none'" class="fa fa-sort" aria-hidden="true"></i>
+  <i *ngIf="info.isSortable && info.sort==='asc'" class="fa fa-sort-asc" aria-hidden="true"></i>
+  <i *ngIf="info.isSortable && info.sort==='desc'" class="fa fa-sort-desc" aria-hidden="true"></i>
+</a>

@@ -1,10 +1,22 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { NgxConfigDatatableComponent } from './ngx-config-datatable.component';
+import { BtnCommandComponent } from './datatable/components/btn-command/btn-command.component';
+import { BtnSortComponent } from './datatable/components/btn-sort/btn-sort.component';
+import { DatatableComponent } from './datatable/components/datatable.component';
 
 @NgModule({
-  declarations: [NgxConfigDatatableComponent],
-  imports: [
+  declarations: [
+    BtnCommandComponent,
+    BtnSortComponent,
+    DatatableComponent
   ],
-  exports: [NgxConfigDatatableComponent]
+  imports: [
+    CommonModule
+  ],
+  exports: [
+    BtnCommandComponent,
+    BtnSortComponent,
+    DatatableComponent
+  ]
 })
 export class NgxConfigDatatableModule { }

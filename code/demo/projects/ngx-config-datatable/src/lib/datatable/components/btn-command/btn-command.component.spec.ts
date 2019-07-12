@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NgxConfigDatatableComponent } from './ngx-config-datatable.component';
+import { BtnCommandComponent } from './btn-command.component';
 
-describe('NgxConfigDatatableComponent', () => {
-  let component: NgxConfigDatatableComponent;
-  let fixture: ComponentFixture<NgxConfigDatatableComponent>;
+describe('BtnCommandComponent', () => {
+  let component: BtnCommandComponent;
+  let fixture: ComponentFixture<BtnCommandComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NgxConfigDatatableComponent ]
+      declarations: [ BtnCommandComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(NgxConfigDatatableComponent);
+    fixture = TestBed.createComponent(BtnCommandComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

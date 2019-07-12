@@ -124,7 +124,7 @@
       "projectType": "library",
       "root": "projects/ngx-config-datatable",
       "sourceRoot": "projects/ngx-config-datatable/src",
-      "prefix": "cda",
+      "prefix": "cdt",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

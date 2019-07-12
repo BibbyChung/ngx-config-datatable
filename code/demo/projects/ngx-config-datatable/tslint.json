@@ -4,13 +4,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "cda",
+      "cdt",
       "camelCase"
     ],
     "component-selector": [
       true,
       "element",
-      "cda",
+      "cdt",
       "kebab-case"
     ]
   }
