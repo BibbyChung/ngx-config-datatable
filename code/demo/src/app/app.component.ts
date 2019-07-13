@@ -19,11 +19,15 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.datatableSetting = this.appSer.getDatatableSetting();
-    this.fakeData$ = this.appSer.getData();
   }
 
   rowCommand({ id, type }: { id: string, type: string }) {
     console.log(type);
+  }
+
+  show(event: Event) {
+    event.preventDefault();
+    this.fakeData$ = this.appSer.getData();
   }
 
   sortCommand(info: IHeader) {

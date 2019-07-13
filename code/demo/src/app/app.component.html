@@ -1,13 +1,18 @@
 <h1>
-  Welcome to!
+  Welcome to! <button (click)="show($event)">show..</button>
 </h1>
 
-<section>
+<section *ngIf="fakeData$ | async as fakeData; else loading">
   <cdt-datatable
     [className]="'width80'"
     [datatableSetting]="datatableSetting"
-    [data]="fakeData$ | async"
+    [data]="fakeData"
     (rowCommand)="rowCommand($event)"
     (sortCommand)="sortCommand($event)">
   </cdt-datatable>
 </section>
+
+<ng-template #loading>Loading...</ng-template>
+
+
+<!-- <ng-container *ngTemplateOutlet="loading"></ng-container> -->
