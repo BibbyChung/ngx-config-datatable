@@ -33,6 +33,10 @@ export class AppComponent implements OnInit {
     console.log('rowId', id);
   }
 
+  checkRowCommand(event: string[]) {
+    console.log('checked rowIds', event);
+  }
+
   sortCommand(info: IHeader) {
     console.log(info);
 

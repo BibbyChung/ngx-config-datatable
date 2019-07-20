@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output, ContentChild, TemplateRef } from '@angular/core';
+import { Component, ContentChild, EventEmitter, Input, OnDestroy, Output, TemplateRef } from '@angular/core';
 import { BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { IDatatableSetting } from '../interface/IDatatableSetting';
@@ -31,6 +31,7 @@ export class DatatableComponent implements OnDestroy {
     return this.data$.getValue();
   }
   @Output() sortCommand = new EventEmitter<IHeader>();
+  @Output() checkRowCommand = new EventEmitter<string[]>();
 
   private sub = new Subscription();
   private datatableSetting$ = new BehaviorSubject<IDatatableSetting>(null);
@@ -38,6 +39,7 @@ export class DatatableComponent implements OnDestroy {
 
   rows: IRow[] = [];
   footers: IRow[] = [];
+  headerChecked = false;
 
   constructor() {
     this.sub.add(combineLatest(
@@ -71,6 +73,31 @@ export class DatatableComponent implements OnDestroy {
       }
     }
     this.sortCommand.emit(sortInfo);
+  }
+
+  headerCheckIt(event: Event) {
+    event.preventDefault();
+    this.headerChecked = !this.headerChecked;
+
+    for (const row of this.rows) {
+      // tslint:disable-next-line:no-string-literal
+      row['cbk__checked'] = this.headerChecked;
+    }
+    this.checkAllCheckbox();
+  }
+
+  rowCheckIt(event: Event, row) {
+    event.preventDefault();
+    this.checkAllCheckbox();
+  }
+
+  private checkAllCheckbox() {
+    // tslint:disable-next-line:no-string-literal
+    this.headerChecked = !this.rows.some(a => !a['cbk__checked']);
+
+    // tslint:disable-next-line:no-string-literal
+    const ids = this.rows.filter(a => !!a['cbk__checked']).map(a => a.id);
+    this.checkRowCommand.emit(ids);
   }
 
   private addRows() {

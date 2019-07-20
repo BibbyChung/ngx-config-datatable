@@ -77,7 +77,7 @@ export class AppService {
   getData() {
     const fakeData: IFakeData[] = [];
 
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 2; i++) {
       fakeData.push({
         id: F2eHelper.getUUID4(),
         name: `Bibby Chung ${i}`,
