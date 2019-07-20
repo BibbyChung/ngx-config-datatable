@@ -7,8 +7,12 @@
     [className]="'width80'"
     [datatableSetting]="datatableSetting"
     [data]="fakeData"
-    (rowCommand)="rowCommand($event)"
     (sortCommand)="sortCommand($event)">
+
+    <ng-template #rowCommand let-row>
+      <button (click)="doCommand($event, row?.id)">test</button>
+    </ng-template>
+
   </cdt-datatable>
 </section>
 

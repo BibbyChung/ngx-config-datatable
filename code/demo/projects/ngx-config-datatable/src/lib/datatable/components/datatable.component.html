@@ -1,28 +1,28 @@
 <table *ngIf="datatableSetting" [class]="className">
   <thead>
     <tr>
-      <th>
-      </th>
+      <th><input type="checkbox"></th>
       <th [ngClass]="{'d-none': !item.isEnabled}" *ngFor="let item of datatableSetting.headers">
         <cdt-btn-sort [info]="item" (clickLink)="changeSort($event)"></cdt-btn-sort>
       </th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
     <tr *ngFor="let row of rows">
-      <th>
-        <ng-container *ngFor="let c of datatableSetting.rowCommands">
-          <cdt-btn-command 
-            [id]="row.id" 
-            [text]="c.text" 
-            [className]="c.className" 
-            (clickLink)="doCommand($event, c.type)"></cdt-btn-command>
-        </ng-container>
-      </th>
+
+      <td>
+        <input type="checkbox">
+      </td>
+ 
       <ng-container *ngFor="let column of row.columns">
         <td *ngIf="column.isHtml" [innerHTML]="column.content"></td>
         <td *ngIf="!column.isHtml" [innerText]="column.content"></td>
       </ng-container>
+
+      <td >
+        <ng-container *ngTemplateOutlet="rowTmpl, context: { $implicit: row }"></ng-container>
+      </td>
 
     </tr>
   </tbody>

@@ -1,3 +1,23 @@
 a {
   color: inherit;
+
+  &.asc::after {
+    content: '⇂';
+    // font-size: .8rem;
+    // display: inline-block;
+    // transform: rotate(45deg);
+  }
+
+  &.desc::after {
+    // font-size: .8rem;
+    content: '↾';
+  }
+
+  &.none::after {
+    font-size: .8rem;
+    content: '';
+    content: '⇌';
+    display: inline-block;
+    transform: rotate(90deg);
+  }
 }

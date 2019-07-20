@@ -20,13 +20,6 @@ export class AppService {
 
   getDatatableSetting() {
     const setting: IDatatableSetting = {
-      rowCommands: [
-        {
-          text: '編輯',
-          type: 'editing',
-          className: 'mx-1'
-        }
-      ],
       headers: [
         {
           propName: 'name',
@@ -84,7 +77,7 @@ export class AppService {
   getData() {
     const fakeData: IFakeData[] = [];
 
-    for (let i = 0; i < 100; i++) {
+    for (let i = 0; i < 5; i++) {
       fakeData.push({
         id: F2eHelper.getUUID4(),
         name: `Bibby Chung ${i}`,

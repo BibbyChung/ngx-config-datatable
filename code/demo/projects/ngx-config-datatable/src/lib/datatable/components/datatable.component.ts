@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, Output, ContentChild, TemplateRef } from '@angular/core';
 import { BehaviorSubject, combineLatest, Subscription } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { IDatatableSetting } from '../interface/IDatatableSetting';
@@ -12,6 +12,8 @@ import { IRow } from '../interface/IRow';
   styleUrls: ['./datatable.component.scss']
 })
 export class DatatableComponent implements OnDestroy {
+
+  @ContentChild('rowCommand', { static: true }) rowTmpl: TemplateRef<any>;
 
   @Input() className = '';
   @Input()
@@ -28,7 +30,6 @@ export class DatatableComponent implements OnDestroy {
   get data() {
     return this.data$.getValue();
   }
-  @Output() rowCommand = new EventEmitter<{ id: string, type: string }>();
   @Output() sortCommand = new EventEmitter<IHeader>();
 
   private sub = new Subscription();
@@ -70,10 +71,6 @@ export class DatatableComponent implements OnDestroy {
       }
     }
     this.sortCommand.emit(sortInfo);
-  }
-
-  doCommand(id: string, type: string) {
-    this.rowCommand.emit({ id, type });
   }
 
   private addRows() {
