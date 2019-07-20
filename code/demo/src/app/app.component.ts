@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { IDatatableSetting, IHeader } from '../../projects/ngx-config-datatable/src/public-api';
 import { AppService, IFakeData } from './app.service';
+// import { IDatatableSetting, IHeader } from 'ngx-config-datatable';
+import { IDatatableSetting, IHeader } from '../../projects/ngx-config-datatable/src/public-api';
 
 @Component({
   selector: 'bb-root',

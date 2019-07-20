@@ -1,6 +1,29 @@
 {
   "name": "ngx-config-datatable",
   "version": "0.0.1",
+  "description": "use configuration to generate datatable",
+  "types": "./ngx-config-datatable.d.ts",
+  "licenses": [
+    {
+      "type": "MIT"
+    }
+  ],
+  "author": "Bibby Chung",
+  "homepage": "https://github.com/BibbyChung/ngx-config-datatable",
+  "bugs": "https://github.com/BibbyChung/ngx-config-datatable/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BibbyChung/ngx-config-datatable.git"
+  },
+  "keywords": [
+    "ngx",
+    "datatable",
+    "Reactive datatable",
+    "Configuration datatable",
+    "Angular",
+    "Dynamic"
+  ],
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.3",
     "@angular/core": "^8.0.3"
