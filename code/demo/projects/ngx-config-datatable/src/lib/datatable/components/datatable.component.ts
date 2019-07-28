@@ -15,6 +15,9 @@ export class DatatableComponent implements OnDestroy {
 
   @ContentChild('rowCommand', { static: true }) rowTmpl: TemplateRef<any>;
 
+  @Input() isShowCheckbox = true;
+  @Input() isShowRowNumber = true;
+
   @Input() className = '';
   @Input()
   set datatableSetting(v: IDatatableSetting) {
@@ -106,6 +109,7 @@ export class DatatableComponent implements OnDestroy {
     for (const row of this.data) {
       const cs: IRow = {
         id: row.id,
+        rowData: row,
         columns: []
       };
       for (const item of this.datatableSetting.headers) {
@@ -130,6 +134,7 @@ export class DatatableComponent implements OnDestroy {
 
     const fs: IRow = {
       id: '',
+      rowData: { id: '' },
       columns: []
     };
     if (!this.datatableSetting.headers.some(a => a.isSum)) {

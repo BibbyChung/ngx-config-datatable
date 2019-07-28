@@ -1,11 +1,12 @@
 <table *ngIf="datatableSetting" [class]="className">
   <thead>
     <tr>
-      <th>
+      <th *ngIf="isShowCheckbox">
         <input type="checkbox" 
           [checked]=" headerChecked"
           (change)="headerCheckIt($event)">
       </th>
+      <th *ngIf="isShowRowNumber"></th>
       <th [ngClass]="{'d-none': !item.isEnabled}" *ngFor="let item of datatableSetting.headers">
         <cdt-btn-sort [info]="item" (clickLink)="changeSort($event)"></cdt-btn-sort>
       </th>
@@ -13,13 +14,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let row of rows">
+    <tr *ngFor="let row of rows; let i=index">
 
-      <td>
+      <td *ngIf="isShowCheckbox">
         <input type="checkbox" 
           [checked]="!!row.cbk__checked" 
           (change)="row.cbk__checked=!row.cbk__checked;rowCheckIt($event, row)">
       </td>
+
+      <td *ngIf="isShowRowNumber"><span>{{i+1}}</span></td>
 
       <ng-container *ngFor="let column of row.columns">
         <td *ngIf="column.isHtml" [innerHTML]="column.content"></td>
@@ -34,8 +37,9 @@
   </tbody>
   <tfoot>
     <tr *ngFor="let row of footers">
-      <th>
+      <th *ngIf="isShowCheckbox">
       </th>
+      <th *ngIf="isShowRowNumber"></th>
       <ng-container *ngFor="let column of row.columns">
         <td>{{column.content}}</td>
       </ng-container>

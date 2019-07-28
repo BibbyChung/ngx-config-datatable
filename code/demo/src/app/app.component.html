@@ -25,13 +25,15 @@
     </div>
     <cdt-datatable
       [className]="'table table-hover div-b'"
+      [isShowCheckbox]="true"
+      [isShowRowNumber]="true"
       [datatableSetting]="datatableSetting"
       [data]="fakeData"
       (checkRowCommand)="checkRowCommand($event)"
       (sortCommand)="sortCommand($event)">
 
       <ng-template #rowCommand let-row>
-        <button class="btn btn-outline-primary"  (click)="doCommand($event, row?.id)">view  </button>
+        <button class="btn btn-outline-primary"  (click)="doCommand($event, row?.id)">view</button>
       </ng-template>
 
     </cdt-datatable>
