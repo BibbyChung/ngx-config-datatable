@@ -6,7 +6,7 @@
           [checked]=" headerChecked"
           (change)="headerCheckIt($event)">
       </th>
-      <th *ngIf="isShowRowNumber"></th>
+      <th *ngIf="isShowRowNumber">#</th>
       <th [ngClass]="{'d-none': !item.isEnabled}" *ngFor="let item of datatableSetting.headers">
         <cdt-btn-sort [info]="item" (clickLink)="changeSort($event)"></cdt-btn-sort>
       </th>

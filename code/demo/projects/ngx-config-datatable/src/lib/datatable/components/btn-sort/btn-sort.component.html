@@ -1,3 +1,4 @@
-<a href="#" [class]="info.sort" (click)="click($event)">
-  {{info.text}} 
+<a href="#" [class]="info.sort" [ngClass]="{'noneSort': !info.isSortable}" (click)="click($event)">
+  {{info.text}}
 </a>
+

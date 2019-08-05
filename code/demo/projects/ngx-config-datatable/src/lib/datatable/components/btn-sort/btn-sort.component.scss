@@ -15,9 +15,12 @@ a {
 
   &.none::after {
     font-size: .8rem;
-    content: '';
     content: '⇌';
     display: inline-block;
     transform: rotate(90deg);
+  }
+
+  &.noneSort::after {
+    content: '';
   }
 }

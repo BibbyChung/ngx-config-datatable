@@ -45,7 +45,7 @@ export class AppService {
           text: '狀態',
           sort: 'none',
           isHtml: false,
-          isSortable: true,
+          isSortable: false,
           isEnabled: true,
           converter: {
             to: (v: any) => {
@@ -61,7 +61,7 @@ export class AppService {
           text: '營業額',
           sort: 'none',
           isHtml: false,
-          isSortable: true,
+          isSortable: false,
           isEnabled: true,
           isSum: true,
           converter: {
